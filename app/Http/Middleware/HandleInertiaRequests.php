@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Lang;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -35,10 +37,23 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'ziggy' => fn () => [
+            'ziggy' => fn() => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'locale' => fn() => app()->getLocale(),
+            't' => fn() => $this->getJsonTranslations(app()->getLocale())
         ];
+    }
+
+    protected function getJsonTranslations(string $locale): array
+    {
+        $path = resource_path("lang/{$locale}.json");
+
+        if (!File::exists($path)) {
+            return [];
+        }
+
+        return json_decode(File::get($path), true) ?? [];
     }
 }
