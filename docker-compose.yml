@@ -1,0 +1,58 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/var/www/html
+      - app_storage:/var/www/html/storage/app
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data2:/var/lib/mysql
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  webserver2:
+    image: nginx:alpine
+    container_name: webserver2
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "81:80"
+      - "444:443"
+    networks:
+      - app-network
+
+volumes:
+  mysql_data2:
+  app_storage:
+
+networks:
+  app-network:
+    driver: bridge
