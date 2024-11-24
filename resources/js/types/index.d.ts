@@ -12,11 +12,15 @@ enum Locale {
     JA = 'ja',
 }
 
+export type NestedTranslations = {
+    [key: string]: string | NestedTranslations;
+};
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;
     };
     ziggy: Config & { location: string };
-    t: Record<string, string>;
+    t: any;
     locale: Locale;
 };
