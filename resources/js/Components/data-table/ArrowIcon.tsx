@@ -1,8 +1,8 @@
 type Props = {
-    ascending: Boolean
+    ascending?: Boolean
 }
 
-const ArrowIcon = ({ ascending }: Props) => {
+const ArrowIcon = ({ ascending = undefined }: Props) => {
     const topColor = ascending === true ? "#171C26" : "#BCC2CE";
     const bottomColor = ascending === false ? "#171C26" : "#BCC2CE";
 
