@@ -1,0 +1,24 @@
+{
+    "welcome": "Welcome",
+    "button": {
+        "logIn": "Log In",
+        "logOut": "Log Out",
+        "profile": "Profile"
+    },
+    "navigation": {
+        "dashboard": "Dashboard",
+        "users": "Users"
+    },
+    "field": {
+        "rowsPerPage": "Rows per page",
+        "search": "Search",
+        "name": "Name",
+        "email": "Email",
+        "actions": "Actions"
+    },
+    "info": {
+        "noAvailableData": "No available data",
+        "of": "of"
+    },
+    "message": {}
+}

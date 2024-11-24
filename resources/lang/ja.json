@@ -1,0 +1,24 @@
+{
+    "welcome": "ようこそ",
+    "button": {
+        "logIn": "ログイン",
+        "logOut": "ログアウト",
+        "profile": "プロフィール"
+    },
+    "navigation": {
+        "dashboard": "ダッシュボード",
+        "users": "ユーザー"
+    },
+    "field": {
+        "rowsPerPage": "ページあたりの行数",
+        "search": "検索",
+        "name": "名前",
+        "email": "メール",
+        "actions": "アクション"
+    },
+    "info": {
+        "noAvailableData": "利用可能なデータはありません",
+        "of": "の"
+    },
+    "message": {}
+}

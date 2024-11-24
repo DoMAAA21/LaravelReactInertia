@@ -25,3 +25,46 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     t: Translations;
     locale: Locale;
 };
+
+export interface Column {
+    field: string;
+    label: string;
+    width?: string;
+    sortField?: string;
+}
+
+export interface Row {
+    [key: string]: any;
+}
+
+export interface DataTableProps {
+    columns: Column[];
+    rows: Row[];
+    withDeleted?: boolean;
+    handleCheckboxChange?: () => void;
+    checkboxLabel?: string;
+    buttonText?: string;
+    onButtonClick?: () => void;
+    filter?: string;
+    page?: number;
+    onPageChange: (page: number) => void;
+    pageCount?: number;
+    totalRows?: number;
+    rowsPerPage?: number;
+    onRowsPerPageChange: (rowsPerPage: number) => void;
+    loading?: boolean;
+    onSearch: (search: string) => void;
+    onSortChange: (sortField: string, sortOrder: 'asc' | 'desc') => void;
+    showSearch?: boolean;
+}
+
+export interface PaginatedProps {
+    current_page: number;
+    total_pages: number;
+    total_rows: number;
+    per_page: number;
+}
+export interface UserListProps extends PageProps, PaginatedProps{
+    users:  User[],
+}
+
