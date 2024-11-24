@@ -7,6 +7,10 @@ export interface User {
     email_verified_at?: string;
 }
 
+enum Locale {
+    EN = 'en',
+    JA = 'ja',
+}
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
@@ -14,5 +18,5 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     };
     ziggy: Config & { location: string };
     t: Record<string, string>;
-    locale: string;
+    locale: Locale;
 };
