@@ -21,5 +21,5 @@ export const useFetch = ({ page, rowsPerPage, searchParams, withDeleted = false 
             replace: true,
             preserveState: true
         });
-    }, [page, rowsPerPage, searchParams]);
+    }, [page, rowsPerPage, searchParams, withDeleted]);
 };
