@@ -1,10 +1,11 @@
 import { useState, useEffect, ChangeEvent } from 'react';
+import { usePage } from '@inertiajs/react';
+import { useDebounce } from '@/hooks/useDebounce';
+import FilterIcon from '@/assets/svg/FilterIcon.svg';
 import DataTableButtons from './DataTableButtons';
 import ArrowIcon from './ArrowIcon';
-import FilterIcon from '../../assets/svg/FilterIcon.svg';
-import { useDebounce } from '../../hooks/useDebounce';
 import { DataTableProps, Column } from '@/types';
-import { usePage } from '@inertiajs/react';
+
 
 const DataTable = ({
     columns = [],
