@@ -8,7 +8,7 @@ interface UseFetchProps {
     withDeleted: true | false
 }
 
-const useFetch = ({ page, rowsPerPage, searchParams, withDeleted = false }: UseFetchProps) => {
+export const useFetch = ({ page, rowsPerPage, searchParams, withDeleted = false }: UseFetchProps) => {
     useEffect(() => {
         const query = {
             ...searchParams,
@@ -23,5 +23,3 @@ const useFetch = ({ page, rowsPerPage, searchParams, withDeleted = false }: UseF
         });
     }, [page, rowsPerPage, searchParams]);
 };
-
-export default useFetch;
