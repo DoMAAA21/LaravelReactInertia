@@ -3,7 +3,13 @@
     "button": {
         "logIn": "Log In",
         "logOut": "Log Out",
-        "profile": "Profile"
+        "profile": "Profile",
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete",
+        "restore": "Restore",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
     },
     "navigation": {
         "dashboard": "Dashboard",
@@ -14,11 +20,14 @@
         "search": "Search",
         "name": "Name",
         "email": "Email",
-        "actions": "Actions"
+        "actions": "Actions",
+        "includeDeleted": "Include Deleted"
     },
     "info": {
         "noAvailableData": "No available data",
-        "of": "of"
+        "of": "of",
+        "confirmDelete": "Confirm Delete",
+        "areYouSure": "Are you sure you want to delete?"
     },
     "message": {}
 }

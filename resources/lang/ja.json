@@ -3,7 +3,13 @@
     "button": {
         "logIn": "ログイン",
         "logOut": "ログアウト",
-        "profile": "プロフィール"
+        "profile": "プロフィール",
+        "view": "表示",
+        "edit": "編集",
+        "delete": "削除",
+        "restore": "復元",
+        "confirm": "確認",
+        "cancel": "キャンセル"
     },
     "navigation": {
         "dashboard": "ダッシュボード",
@@ -14,11 +20,14 @@
         "search": "検索",
         "name": "名前",
         "email": "メール",
-        "actions": "アクション"
+        "actions": "アクション",
+        "includeDeleted": "削除済みを含む"
     },
     "info": {
         "noAvailableData": "利用可能なデータはありません",
-        "of": "の"
+        "of": "の",
+        "confirmDelete": "削除を確認",
+        "areYouSure": "本当に削除してもよろしいですか？"
     },
     "message": {}
 }
