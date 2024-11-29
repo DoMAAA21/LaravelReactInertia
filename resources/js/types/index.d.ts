@@ -44,7 +44,7 @@ export interface DataTableProps {
     columns: Column[];
     rows: Row[];
     withDeleted?: boolean;
-    handleCheckboxChange?: () => void;
+    handleCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
     checkboxLabel?: string;
     buttonText?: string;
     onButtonClick?: () => void;
