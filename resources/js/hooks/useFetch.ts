@@ -1,15 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { router } from '@inertiajs/react';
 
 interface UseFetchProps {
     page: number;
     rowsPerPage: number;
     searchParams: Record<string, unknown>;
-    withDeleted: true | false
+    withDeleted: boolean;
 }
 
 export const useFetch = ({ page, rowsPerPage, searchParams, withDeleted = false }: UseFetchProps) => {
+    const hasMounted = useRef(false); 
+
     useEffect(() => {
+        if (!hasMounted.current) {
+            hasMounted.current = true;
+            return; 
+        }
+
         const query = {
             ...searchParams,
             page,
