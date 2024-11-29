@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { DataTable, DataTableActions } from '@/Components/data-table';
 import { UserListProps } from '@/types';
 import { router } from '@inertiajs/react';
 import { useFetch } from '@/hooks/useFetch';
 import ConfirmationPopUp from '@/Components/modal/ConfirmationPopUp';
+import { toast } from 'sonner';
 
 
 export default function UserList({ users, current_page, total_pages, total_rows, per_page, t }: UserListProps) {
@@ -32,8 +33,17 @@ export default function UserList({ users, current_page, total_pages, total_rows,
             title,
             message,
             onSuccess: () => {
-
+                router.delete(route('users.destroy', { id }), {
+                    onSuccess: () => {
+                        console.log('asds')
+                        toast.success('User deleted successfully');
+                    },
+                    onError: (errors) => {
+                        console.error('Failed to delete user:', errors);
+                    }
+                });
             },
+
             confirmButton,
             cancelButton
         })
@@ -92,8 +102,9 @@ export default function UserList({ users, current_page, total_pages, total_rows,
         }))
     }
 
-    const handleCheckboxChange = () => {
-        setWithDeleted(!withDeleted);
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const checked = event.target.checked;
+        setWithDeleted(checked);
     }
 
 

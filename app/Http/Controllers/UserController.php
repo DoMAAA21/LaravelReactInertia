@@ -27,4 +27,10 @@ class UserController extends Controller
             'per_page' => $query->perPage()
         ]);
     }
+
+    public function destroy ( User $user)
+    {
+        $user->delete();
+        return back()->with('success', 'User deleted successfully.');
+    }
 }

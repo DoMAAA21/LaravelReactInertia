@@ -12,6 +12,11 @@ class UserService
 
         $sortBy = $request->input('sortBy','id');
 
+        if($request->filled('withDeleted') && $request->withDeleted === 'true')
+        {
+            $query->withTrashed();
+        }
+
         $sortOrder = $request->input('sortOrder', 'asc');
 
         $query->orderBy($sortBy, $sortOrder);
