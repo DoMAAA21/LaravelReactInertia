@@ -11,7 +11,7 @@ const DataTable = ({
     columns = [],
     rows = [],
     withDeleted = false,
-    handleCheckboxChange = () => { },
+    handleCheckboxChange = () => {},
     checkboxLabel = '',
     buttonText = '',
     onButtonClick = () => { },

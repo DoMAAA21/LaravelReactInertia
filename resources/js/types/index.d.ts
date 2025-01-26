@@ -1,3 +1,4 @@
+import React from 'react';
 import { Config } from 'ziggy-js';
 
 export interface User {
@@ -10,14 +11,14 @@ export interface User {
     created_at?: Date
 }
 
-enum Locale {
+declare enum Locale {
     EN = 'en',
     JA = 'ja',
 }
 
-export type Translations<T extends Record<string> = Record<string>> = T & {
+export type Translations<T extends Record<string, any> = Record<string, any>> = T & {
     [key: string]: Record<string, string> | Translations<T>;
-};
+  };
 
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
@@ -44,7 +45,7 @@ export interface DataTableProps {
     columns: Column[];
     rows: Row[];
     withDeleted?: boolean;
-    handleCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    handleCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     checkboxLabel?: string;
     buttonText?: string;
     onButtonClick?: () => void;

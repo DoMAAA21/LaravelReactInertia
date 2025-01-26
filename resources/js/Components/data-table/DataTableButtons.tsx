@@ -2,7 +2,7 @@ import { colors } from '../Theme';
 
 interface Props {
     withDeleted: boolean;
-    handleCheckboxChange: () => void;
+    handleCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     checkboxLabel: string;
     buttonText: string;
     onButtonClick: () => void;
